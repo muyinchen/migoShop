@@ -1,0 +1,37 @@
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+<<<<<<< HEAD
+Thumbs.db
+=======
+<<<<<<< HEAD
+Thumbs.db
+=======
+Thumbs.db
+>>>>>>> e704ead569657bdb826d1d159a140d2c8278d779
+>>>>>>> ed97268bae3c36975005f99bca77e7e7403d35db
