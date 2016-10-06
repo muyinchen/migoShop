@@ -2,14 +2,15 @@ package com.migo.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.migo.mapper.TbItemDescMapper;
 import com.migo.mapper.TbItemMapper;
-import com.migo.pojo.EasyUIDataGridResult;
-import com.migo.pojo.TbItem;
-import com.migo.pojo.TbItemExample;
+import com.migo.pojo.*;
 import com.migo.service.ItemService;
+import com.migo.utils.IDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,8 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private TbItemMapper itemMapper;
+    @Autowired
+    private TbItemDescMapper itemDescMapper;
 
     public TbItem getItemById(long itemId){
         //添加查询条件
@@ -48,5 +51,31 @@ public class ItemServiceImpl implements ItemService {
         result.setTotal(pageInfo.getTotal());
         result.setRows(list);
         return result;
+    }
+
+    @Override
+    public MigoResult CreateItem(TbItem item, String desc) {
+        //生成商品id
+        long itemId= IDUtils.genItemId();
+        //补全TbItem属性
+        item.setId(itemId);
+        //商品状态，1 正常 2下架 3 删除
+        item.setStatus((byte) 1);
+        //补全创建和更新时间
+        Date date=new Date();
+        item.setCreated(date);
+        item.setUpdated(date);
+        //插入商品表
+        itemMapper.insert(item);
+        //商品描述
+        TbItemDesc itemDesc=new TbItemDesc();
+        itemDesc.setItemId(itemId);
+        itemDesc.setItemDesc(desc);
+        itemDesc.setCreated(date);
+        itemDesc.setUpdated(date);
+        //插入商品描述数据
+        itemDescMapper.insert(itemDesc);
+
+        return MigoResult.ok();
     }
 }

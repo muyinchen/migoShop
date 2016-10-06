@@ -1,6 +1,7 @@
 package com.migo.service;
 
 import com.migo.pojo.EasyUIDataGridResult;
+import com.migo.pojo.MigoResult;
 import com.migo.pojo.TbItem;
 
 /**
@@ -10,4 +11,5 @@ import com.migo.pojo.TbItem;
 public interface ItemService {
     public TbItem getItemById(long itemId);
     EasyUIDataGridResult getItemList(int page,int rows);
+    MigoResult CreateItem(TbItem item,String desc);
 }

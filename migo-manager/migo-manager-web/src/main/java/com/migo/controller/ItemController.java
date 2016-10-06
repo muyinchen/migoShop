@@ -1,12 +1,14 @@
 package com.migo.controller;
 
 import com.migo.pojo.EasyUIDataGridResult;
+import com.migo.pojo.MigoResult;
 import com.migo.pojo.TbItem;
 import com.migo.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -29,5 +31,12 @@ public class ItemController {
     public EasyUIDataGridResult getItemList(Integer page,Integer rows){
         EasyUIDataGridResult result=itemService.getItemList(page,rows);
         return result;
+    }
+
+    @RequestMapping(value = "/item/save",method = RequestMethod.POST)
+    @ResponseBody
+    public MigoResult createItem(TbItem item,String desc){
+        MigoResult result=itemService.CreateItem(item,desc);
+        return  result;
     }
 }
