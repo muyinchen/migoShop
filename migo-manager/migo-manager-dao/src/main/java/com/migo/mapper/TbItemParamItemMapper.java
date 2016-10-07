@@ -2,9 +2,8 @@ package com.migo.mapper;
 
 import com.migo.pojo.TbItemParamItem;
 import com.migo.pojo.TbItemParamItemExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TbItemParamItemMapper {
     int countByExample(TbItemParamItemExample example);

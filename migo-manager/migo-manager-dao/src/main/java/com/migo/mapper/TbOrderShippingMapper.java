@@ -2,9 +2,8 @@ package com.migo.mapper;
 
 import com.migo.pojo.TbOrderShipping;
 import com.migo.pojo.TbOrderShippingExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TbOrderShippingMapper {
     int countByExample(TbOrderShippingExample example);

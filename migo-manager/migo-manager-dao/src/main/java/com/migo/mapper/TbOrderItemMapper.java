@@ -2,9 +2,8 @@ package com.migo.mapper;
 
 import com.migo.pojo.TbOrderItem;
 import com.migo.pojo.TbOrderItemExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TbOrderItemMapper {
     int countByExample(TbOrderItemExample example);

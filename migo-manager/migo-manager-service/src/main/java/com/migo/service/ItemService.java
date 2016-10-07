@@ -11,5 +11,6 @@ import com.migo.pojo.TbItem;
 public interface ItemService {
     public TbItem getItemById(long itemId);
     EasyUIDataGridResult getItemList(int page,int rows);
-    MigoResult CreateItem(TbItem item,String desc);
+    MigoResult CreateItem(TbItem item,String desc,String itemParam);
+    String getItemParamHtml(Long itemId);
 }

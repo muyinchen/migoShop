@@ -2,9 +2,8 @@ package com.migo.mapper;
 
 import com.migo.pojo.TbItemCat;
 import com.migo.pojo.TbItemCatExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TbItemCatMapper {
     int countByExample(TbItemCatExample example);
