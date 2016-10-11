@@ -31,7 +31,7 @@ $(function(){
         			if(data.status == 200){
         				_tree.tree("update",{
             				target : node.target,
-            				id : data.data.id
+            				id : data.data
             			});
         			}else{
         				$.messager.alert('提示','创建'+node.text+' 分类失败!');

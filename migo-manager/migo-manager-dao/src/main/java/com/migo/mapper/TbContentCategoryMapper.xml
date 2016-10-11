@@ -103,6 +103,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.migo.pojo.TbContentCategory" >
+    <selectKey keyProperty="id" order="AFTER" resultType="long">
+      SELECT LAST_INSERT_ID();
+    </selectKey>
     insert into tb_content_category (id, parent_id, name, 
       status, sort_order, is_parent, 
       created, updated)

@@ -2,9 +2,8 @@ package com.migo.rest.controller;
 
 import com.migo.rest.pojo.ItemCatResult;
 import com.migo.rest.service.ItemCatService;
-import com.migo.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,7 @@ public class ItemCatController {
     @Autowired
     private ItemCatService itemCatService;
 
-    @RequestMapping(value = "/list",produces = MediaType.APPLICATION_JSON_VALUE+";charset=utf-8")
+    /*@RequestMapping(value = "/list",produces = MediaType.APPLICATION_JSON_VALUE+";charset=utf-8")
     @ResponseBody
     public String getItemCatList(String callback){
         ItemCatResult result=itemCatService.getItemCatList();
@@ -34,5 +33,19 @@ public class ItemCatController {
         //需要把result转换成字符串
         String json=JsonUtils.objectToJson(result);
         return callback+"("+json+")";
+    }*/
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public Object getItemCatList(String callback){
+        ItemCatResult  result=itemCatService.getItemCatList();
+        if (StringUtils.isEmpty(callback)){
+            return result;
+        }
+        //字符串不为空，jsonp
+        MappingJacksonValue mappingJacksonValue=new MappingJacksonValue(result);
+        mappingJacksonValue.setJsonpFunction(callback);
+        return mappingJacksonValue;
+
     }
 }
