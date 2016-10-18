@@ -1,5 +1,7 @@
 package com.migo.mapper;
 
+import com.migo.extendspojo.TbItemParamexd;
+
 import java.util.List;
 
 /**
@@ -8,5 +10,5 @@ import java.util.List;
  */
 public interface TbItemparamexdMapper {
 
-    List selectList();
+    List<TbItemParamexd> selectList();
 }

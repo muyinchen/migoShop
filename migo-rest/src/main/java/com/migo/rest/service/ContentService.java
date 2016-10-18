@@ -1,5 +1,6 @@
 package com.migo.rest.service;
 
+import com.migo.pojo.MigoResult;
 import com.migo.pojo.TbContent;
 
 import java.util.List;
@@ -10,4 +11,5 @@ import java.util.List;
  */
 public interface ContentService {
     List<TbContent> getContentList(Long cid);
+    MigoResult synContent(Long cid);
 }

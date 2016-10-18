@@ -34,5 +34,17 @@ public class ContentController {
 
         }
     }
+    @RequestMapping("/syn/content/{cid}")
+    @ResponseBody
+    public MigoResult  synContent(@PathVariable("cid") Long cid){
+        try {
+
+            MigoResult result = contentService.synContent(cid);
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+            return MigoResult.build(500,ExceptionUtil.getStackTrace(e));
+        }
+    }
 
 }
