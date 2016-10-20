@@ -14,7 +14,7 @@
 <body>
 <div class="w" id="logo">
     <div>
-    	<a href="http://localhost:8082">
+    	<a href="www..migo.com">
     		<img src="/images/migo-logo.gif" alt="咪购商城" width="170" height="60"/>
     	</a> <b></b>
     </div>

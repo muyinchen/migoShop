@@ -1172,7 +1172,7 @@ $.extend(jdModelCallCenter, {autoLocation: function(a) {
 var category = {OBJ: $("#_JD_ALLSORT"),
 		//URL_Serv: "http://manage.migo.com/web/itemcat/all?callback=category.getDataService",
 		URL_Serv: "http://rest.migo.com/rest/item/cat/list?callback=category.getDataService",
-		//URL_Serv: "http://localhost:8082/category.json",
+		//URL_Serv: "www.migo.com/category.json",
 		URL_BrandsServ: "http://d.360buy.com/brandVclist2/get?callback=category.getBrandService&ids=a,9211,9212^b,9214,9215^c,9217,9218^d,9220,9221^e,9223,9224^f,9226,9227^g,9229,9230^h,9232,9233^m,9235,9236^i,9238,9239^j,9241,9242^p,9244,9245^k,9247,9248^l,9250,9251",
 		FN_GetLink: function(a, b) {
 	        var c, d;
@@ -1183,7 +1183,7 @@ var category = {OBJ: $("#_JD_ALLSORT"),
 	            case 2:
 	                c = b.split("|")[0], d = b.split("|")[1]
 	        }
-        return "" == c ? d : (/^http[s]?:\/\/([\w-]+\.)+[\w-]+([\w-.\/?%&=]*)?$/.test(c) || (c = c.replace(/-000$/, ""), c = c.match(/^\d*-\d*$/) ? "http://channel.jd.com/" + c + ".html" : "http://www.migo.com" + c + ".html"), '<a href="' + c + '">' + d + "</a>")
+        return "" == c ? d : (/^http[s]?:\/\/([\w-]+\.)+[\w-]+([\w-.\/?%&=]*)?$/.test(c) || (c = c.replace(/-000$/, ""), c = c.match(/^\d*-\d*$/) ? "http://channel.jd.com/" + c + ".html" : "http://http://www..migo.com" + c + ".html"), '<a href="' + c + '">' + d + "</a>")
     },FN_SetLink: function(a) {
         var b = "", c = pageConfig.isHome ? 'clstag="homepage|keycount|home2013|0604e"' : "", d = pageConfig.isHome ? 'clstag="homepage|keycount|home2013|0603e"' : "", e = pageConfig.isHome ? 'clstag="homepage|keycount|home2013|0605e"' : "";
         switch (a) {
