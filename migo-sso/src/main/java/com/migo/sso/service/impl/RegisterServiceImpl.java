@@ -5,6 +5,7 @@ import com.migo.pojo.MigoResult;
 import com.migo.pojo.TbUser;
 import com.migo.pojo.TbUserExample;
 import com.migo.sso.service.RegisterService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -79,6 +80,8 @@ public class RegisterServiceImpl implements RegisterService{
         Date date=new Date();
         user.setCreated(date);
         user.setUpdated(date);
+        //md5加密密码
+        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         tbUserMapper.insert(user);
         return MigoResult.ok();
 
