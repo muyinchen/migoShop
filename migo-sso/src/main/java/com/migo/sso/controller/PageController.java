@@ -1,6 +1,7 @@
 package com.migo.sso.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,7 +14,9 @@ public class PageController {
      * 展示登录页面，以后迭代 TODO
      */
     @RequestMapping("/page/login")
-    public String showLogin(){
+    public String showLogin(String redirectURL,Model model){
+        //把参数传给jsp
+        model.addAttribute("redirect",redirectURL);
         return "login";
     }
     /**
