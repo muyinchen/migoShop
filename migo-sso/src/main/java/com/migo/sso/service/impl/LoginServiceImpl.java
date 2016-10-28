@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -68,5 +69,26 @@ public class LoginServiceImpl implements LoginService {
         return MigoResult.ok(token);
 
 
+    }
+
+    @Override
+    public MigoResult getUserByToken(String token) {
+        //根据token取用户信息
+        String json = jedisClient.get(REDIS_SESSION_Key + ":" + token);
+        //判断是否有查到结果
+        if (StringUtils.isEmpty(json)){
+            return MigoResult.build(400,"用户session已过期");
+        }
+        //把json转换成Java对象
+        TbUser user = JsonUtils.jsonToPojo(json, TbUser.class);
+        //更新session过期时间
+        jedisClient.expire(REDIS_SESSION_Key + ":" + token,SESSION_EXPIRE);
+        return MigoResult.ok(user);
+    }
+
+    @Override
+    public MigoResult loginoutByToken(String token) {
+        jedisClient.del(REDIS_SESSION_Key + ":" + token);
+        return MigoResult.ok();
     }
 }

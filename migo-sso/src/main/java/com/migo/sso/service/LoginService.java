@@ -12,4 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public interface LoginService {
     MigoResult login(String username, String password, HttpServletRequest request,
                      HttpServletResponse response);
+    MigoResult getUserByToken(String token);
+    MigoResult loginoutByToken(String token);
 }
