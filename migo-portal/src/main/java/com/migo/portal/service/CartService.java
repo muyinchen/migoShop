@@ -15,4 +15,6 @@ public interface CartService {
     MigoResult addCart(long itemId, Integer num,
                        HttpServletRequest request, HttpServletResponse response);
     List<CartItem> getCartItemList(HttpServletRequest request);
+    MigoResult updateCartItem(long itemId,Integer num,
+                              HttpServletRequest request,HttpServletResponse response);
 }

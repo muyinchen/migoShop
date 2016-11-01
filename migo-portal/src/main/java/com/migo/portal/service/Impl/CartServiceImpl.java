@@ -53,7 +53,7 @@ public class CartServiceImpl implements CartService {
             cartItem.setId(itemId);
             cartItem.setPrice(item.getPrice());
             cartItem.setTitle(item.getTitle());
-            if (StringUtils.isEmpty(item.getImage())){
+            if (!StringUtils.isEmpty(item.getImage())){
                 String image = item.getImage();
                 String[] strings = image.split(",");
                 cartItem.setImage(strings[0]);
@@ -79,5 +79,23 @@ public class CartServiceImpl implements CartService {
         } catch (Exception e) {
             return new ArrayList<CartItem>();
         }
+    }
+
+    @Override
+    public MigoResult updateCartItem(long itemId, Integer num, HttpServletRequest request, HttpServletResponse response) {
+        //从cookie中取商品列表
+        List<CartItem> cartItemList = getCartItemList(request);
+        //根据商品id查询商品
+        for (CartItem cartItem : cartItemList) {
+            if (cartItem.getId()==itemId){
+                //更新商品数量
+                cartItem.setNum(num);
+                break;
+            }
+        }
+        //写入cookie
+        CookieUtils.setCookie(request,response,TT_CART_COOKIE,JsonUtils.objectToJson(cartItemList),COOKIE_EXPIRE,true);
+
+        return MigoResult.ok();
     }
 }

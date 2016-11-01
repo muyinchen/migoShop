@@ -11,8 +11,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
    <meta name="format-detection" content="telephone=no">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <link rel="stylesheet" href="css/base.css">
-   <link href="css/purchase.2012.css?v=201410141639" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="/css/base.css">
+   <link href="/css/purchase.2012.css?v=201410141639" rel="stylesheet" type="text/css">
    <title>我的购物车 - 咪购商城</title>
    <script>
    	var pageConfig  = {};
@@ -22,7 +22,7 @@
 <jsp:include page="commons/shortcut.jsp" />
 <!--shortcut end-->
 <div class="w w1 header clearfix">
-	<div id="logo"><a href="/src/main/webapp"><img clstag="clickcart|keycount|xincart|logo" src="images/migo-logo.gif" title="返回咪购商城首页" alt="返回咪购商城首页"></a></div>
+	<div id="logo"><a href="/src/main/webapp"><img clstag="clickcart|keycount|xincart|logo" src="/images/migo-logo.gif" title="返回咪购商城首页" alt="返回咪购商城首页"></a></div>
     <div class="language"><a href="javascript:void(0);" onclick="toEnCart()"></a></div>
 	<div class="progress clearfix">
 		<ul class="progress-1">
@@ -63,7 +63,7 @@
 		            <div class="cell p-goods">
 		                <div class="p-img">
 		                	<a href="/item/${cart.id }.html" target="_blank">
-		                		<img clstag="clickcart|keycount|xincart|p-imglistcart" src="${cart.images[0]}" alt="${cart.title}" width="52" height="52">
+		                		<img clstag="clickcart|keycount|xincart|p-imglistcart" src="${cart.image}" alt="${cart.title}" width="52" height="52">
 		                	</a>
 		                </div>    
 		                <div class="p-name">
@@ -144,13 +144,13 @@
 <!--推荐位html修改处-->
 
 
-<script type="text/javascript" src="js/base-v1.js"></script>
+<script type="text/javascript" src="/js/base-v1.js"></script>
 <!-- footer start -->
 <jsp:include page="commons/footer.jsp" />
 <!-- footer end -->
 
 <!-- 购物车相关业务 -->
-<script type="text/javascript" src="js/cart.js"></script>
-<script type="text/javascript" src="js/jquery.price_format.2.0.min.js"></script>
+<script type="text/javascript" src="/js/cart.js"></script>
+<script type="text/javascript" src="/js/jquery.price_format.2.0.min.js"></script>
 
 </html>

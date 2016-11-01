@@ -135,7 +135,7 @@
 		        <li id="choose-result"><div class="dt"></div><div class="dd"></div></li>
 				<li id="choose-btns">
 					<div id="choose-btn-append"  class="btn">
-							<a class="btn-append " id="InitCartUrl" href="/cart/add/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
+							<a class="btn-append " id="InitCartUrl" href="javascript:addCart();" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
 					</div>
 					<div id="choose-btn-easybuy" class="btn"></div>
 					<div id="choose-btn-divide" class="btn"></div>
@@ -146,7 +146,7 @@
 		
 		<div id="preview">
 			<div id="spec-n1" class="jqzoom" clstag="shangpin|keycount|product|spec-n1">
-				<img data-img="1" width="350" height="350" src="${item.images[0]}" alt="${item.title}"  jqimg="${item.images[0]}"/>
+				<img data-img="1" width="350" height="350" src="${item.image}" alt="${item.title}"  jqimg="${item.images[0]}"/>
 			</div>
 					
 			<div id="spec-list" clstag="shangpin|keycount|product|spec-n5">
@@ -299,6 +299,12 @@
 			itemControl.getItemDesc(itemId);
 		},1000);
 	});
+	function addCart() {
+		//取购买商品数量
+		var num=$("#buy-num").val();
+        window.location.href="/cart/add/${item.id}.html?num="+num;
+		
+	}
 </script>
 </body>
 </html>
