@@ -46,4 +46,11 @@ public class CartController {
         MigoResult migoResult = cartService.updateCartItem(itemId, num, request, response);
         return migoResult;
     }
+
+    @RequestMapping("/cart/delete/{itemId}")
+    public String deleteCartItem(@PathVariable Long itemId,
+                                 HttpServletResponse response, HttpServletRequest request){
+        cartService.deleteCartItem(itemId,request,response);
+        return "redirect:/cart/cart.html";
+    }
 }

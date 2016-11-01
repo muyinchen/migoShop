@@ -98,4 +98,22 @@ public class CartServiceImpl implements CartService {
 
         return MigoResult.ok();
     }
+
+    @Override
+    public MigoResult deleteCartItem(long itemId, HttpServletRequest request, HttpServletResponse response) {
+        //接收商品id,并从cookie中取购物车商品列表
+        List<CartItem> cartItemList = getCartItemList(request);
+        //找到对应id的商品
+        for (CartItem cartItem : cartItemList) {
+            if (cartItem.getId()==itemId) {
+                //删除商品
+                cartItemList.remove(cartItem);
+                break;
+            }
+        }
+        //重新将商品列表写入cookie
+        CookieUtils.setCookie(request,response,TT_CART_COOKIE,JsonUtils.objectToJson(cartItemList),COOKIE_EXPIRE,true);
+
+        return MigoResult.ok();
+    }
 }
