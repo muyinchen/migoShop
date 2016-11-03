@@ -21,7 +21,7 @@
     <mvc:resources mapping="/images/**" location="/WEB-INF/images/"/>
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/item/**"/>
+            <mvc:mapping path="/order/**"/>
             <bean class="com.migo.portal.Interceptor.LoginInterceptor"/>
 
         </mvc:interceptor>

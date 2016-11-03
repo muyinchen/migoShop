@@ -28,6 +28,8 @@ public class LoginInterceptor implements HandlerInterceptor {
             response.sendRedirect(SSO_LOGIN_URL+"?redirectURL="+request.getRequestURL());
             return false;
         }
+        // 把用户对象放入到request中
+        request.setAttribute("user",user);
         //没有过期就放行
         return true;
 

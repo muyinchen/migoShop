@@ -37,11 +37,13 @@
 			<input type="hidden" name="orderItems[${status.index}].price" value="${cart.price}"/>
 			<input type="hidden" name="orderItems[${status.index}].totalFee" value="${cart.price * cart.num}"/>
 			<input type="hidden" name="orderItems[${status.index}].title" value="${cart.title}"/>
-			<input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.images[0]}"/>
+			<input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.image}"/>
 		</c:forEach>
 		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
-		<input type="hidden" name="orderShipping.receiverName" value="入云龙"/>
-		<input type="hidden" name="orderShipping.receiverMobile" value="15891588888"/>
+		<input type="hidden" name="postfee" value="0"/>
+		<input type="hidden" name="buyerMessage" value=""/>
+		<input type="hidden" name="orderShipping.receiverName" value="毛毛"/>
+		<input type="hidden" name="orderShipping.receiverMobile" value="15898888888"/>
 		<input type="hidden" name="orderShipping.receiverState" value="北京"/>
 		<input type="hidden" name="orderShipping.receiverCity" value="北京"/>
 		<input type="hidden" name="orderShipping.receiverDistrict" value="昌平区"/>
@@ -79,7 +81,7 @@
 						<b></b>
 						<div class="user-name">
 							<div class="fl">
-								<strong limit="4">入云龙</strong>&nbsp;&nbsp;收
+								<strong limit="4">毛毛</strong>&nbsp;&nbsp;收
 							</div>
 							<div class="fr">158****8888</div>
 							<div class="clr"></div>
@@ -188,7 +190,7 @@
 
 			<div class="p-img">
 				<a target="_blank" href="/item/${cart.id}.html">
-					<img src="${cart.images[0]}" alt="">
+					<img src="${cart.image}" alt="">
 				</a>
 			</div>
 			<div class="goods-msg">
